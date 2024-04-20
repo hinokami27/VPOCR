@@ -21,4 +21,5 @@ public class OcrController {
     public ResponseEntity<String> getImageToString() throws TesseractException {
         return new ResponseEntity<>(ocrComponent.getImageString(), HttpStatus.OK);
     }
+
 }

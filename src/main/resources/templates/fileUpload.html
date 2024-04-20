@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" xmlns>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.cdnfonts.com/css/lemonmilk" rel="stylesheet">
+    <style>
+        html{
+            /*height: 100%;*/
+        }
+        body{
+            height: 100%;
+            margin: 0;
+            background: linear-gradient(107.56deg, #C33764 0%, #1D2671 100%) no-repeat fixed;
+            font-family: 'Lemon/Milk', sans-serif;
+            color: white;
+        }
+        .topTitle{
+            font-size: 50px;
+            margin-top: 30px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .boxTitle{
+            font-size: 32px;
+            margin-top: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .boxWrapper{
+            width:1735px;
+            height: 655px;
+            background-color: #1E1E1E;
+            margin: 0 auto;
+            border-radius: 30px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        #imageUpload{
+            display: none;
+        }
+        .uploadBox{
+            width: 780px;
+            height: 517px;
+            display: inline-block;
+            color: #1E1E1E;
+            cursor: pointer;
+            border-radius: 30px !important;
+            background: rgba(217, 217, 217, 0.8) url("https://cdn.discordapp.com/attachments/1231041041944281108/1231291465016279213/image.png?ex=66254909&is=6623f789&hm=98f2236d5205567a774c618cef75147dcd313f9f47ee4edc00eeffd1c7a7722a&") no-repeat 50% 10%;
+        }
+        .leftWrapper{
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+        }
+        .rightWrapper{
+            width: 50%;
+            padding-top:50px ;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+
+        }
+        .clickHere{
+            position: absolute;
+            color: #1E1E1E;
+            font-size: 28px;
+            top: 400px;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .uploadBoxWrap{
+            background: linear-gradient(0deg, #1D2671 0%, #C33764 100%);
+            border-radius: 30px;
+            padding: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .sellingPoints{
+            text-align: left;
+            margin: 20px 0;
+            font-size: 28px;
+        }
+        .btnConvert{
+            width: 708px;
+            height: 163px;
+            background: linear-gradient(0deg, #1D2671 0%, #C33764 100%);
+            border-radius: 35px;
+            text-align: center;
+            line-height: 163px;
+            font-size: 36px;
+            margin-top: 60px;
+        }
+        .btnWrapper{
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="mainWrapper">
+    <div class="topTitle">
+        IMAGE to text OCR TOOL
+    </div>
+    <div class="boxTitle">
+        extract text from image
+    </div>
+    <div class="boxWrapper">
+        <div class="leftWrapper">
+            <div class="uploadBoxWrap">
+                <label for="imageUpload" class="uploadBox"></label>
+                <input type="file" accept="image/*" id="imageUpload" name="imageUpload">
+            </div>
+            <div class="clickHere">click here to upload</div>
+        </div>
+        <div class="rightWrapper">
+            <div class="sellingPoints">Optical character recognition using A.I.</div>
+            <div class="sellingPoints">supports various image formats including PNG, JPEG and TIFF</div>
+            <div class="sellingPoints">unlimited image to text conversion</div>
+            <div class="btnWrapper">
+                <a>
+                    <div class="btnConvert">
+                        convert to text
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
