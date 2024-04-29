@@ -46,7 +46,7 @@
             color: #1E1E1E;
             cursor: pointer;
             border-radius: 30px !important;
-            background: rgba(217, 217, 217, 0.8) url("https://cdn.discordapp.com/attachments/1231041041944281108/1231291465016279213/image.png?ex=66254909&is=6623f789&hm=98f2236d5205567a774c618cef75147dcd313f9f47ee4edc00eeffd1c7a7722a&") no-repeat 50% 10%;
+            background: rgba(217, 217, 217, 0.8) url("../static/image.png") no-repeat 50% 10%;
         }
         .leftWrapper{
             width: 50%;
@@ -95,6 +95,10 @@
             line-height: 163px;
             font-size: 36px;
             margin-top: 60px;
+            font-family: 'Lemon/Milk', sans-serif;
+            color: white;
+            border: none;
+            cursor: pointer;
         }
         .btnWrapper{
             margin-top: 40px;
@@ -109,27 +113,29 @@
     <div class="boxTitle">
         extract text from image
     </div>
-    <div class="boxWrapper">
-        <div class="leftWrapper">
-            <div class="uploadBoxWrap">
-                <label for="imageUpload" class="uploadBox"></label>
-                <input type="file" accept="image/*" id="imageUpload" name="imageUpload">
+    <form>
+        <div class="boxWrapper">
+            <div class="leftWrapper">
+                <div class="uploadBoxWrap">
+                    <label for="imageUpload" class="uploadBox"></label>
+                    <input type="file" accept="image/*" id="imageUpload" name="imageUpload">
+                </div>
+                <div class="clickHere">click here to upload</div>
             </div>
-            <div class="clickHere">click here to upload</div>
-        </div>
-        <div class="rightWrapper">
-            <div class="sellingPoints">Optical character recognition using A.I.</div>
-            <div class="sellingPoints">supports various image formats including PNG, JPEG and TIFF</div>
-            <div class="sellingPoints">unlimited image to text conversion</div>
-            <div class="btnWrapper">
-                <a>
-                    <div class="btnConvert">
-                        convert to text
-                    </div>
-                </a>
+            <div class="rightWrapper">
+                <div class="sellingPoints">Optical character recognition using A.I.</div>
+                <div class="sellingPoints">supports various image formats including PNG, JPEG and TIFF</div>
+                <div class="sellingPoints">unlimited image to text conversion</div>
+                <div class="btnWrapper">
+                    <a>
+                        <button class="btnConvert">
+                            convert to text
+                        </button>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>
 </body>
 </html>
