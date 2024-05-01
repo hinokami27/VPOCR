@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -113,7 +113,7 @@
     <div class="boxTitle">
         extract text from image
     </div>
-    <form>
+    <form method="post" th:action="@{'/uploadImg'}" enctype="multipart/form-data">
         <div class="boxWrapper">
             <div class="leftWrapper">
                 <div class="uploadBoxWrap">
@@ -128,7 +128,7 @@
                 <div class="sellingPoints">unlimited image to text conversion</div>
                 <div class="btnWrapper">
                     <a>
-                        <button class="btnConvert">
+                        <button type="submit" class="btnConvert">
                             convert to text
                         </button>
                     </a>

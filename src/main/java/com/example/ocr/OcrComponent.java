@@ -18,8 +18,7 @@ public class OcrComponent {
         this.tesseract = tesseract;
     }
 
-    public String getImageString() throws TesseractException {
-        Path filePath = Paths.get("src/main/resources/samples/img.png");
-        return tesseract.doOCR(new File(String.valueOf(filePath)));
+    public String getImageString(String imgPath) throws TesseractException {
+        return tesseract.doOCR(new File(String.valueOf(imgPath)));
     }
 }

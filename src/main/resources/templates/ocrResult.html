@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
@@ -36,7 +36,7 @@
       display: inline-block;
       color: #1E1E1E;
       border-radius: 30px !important;
-      background: rgba(217, 217, 217, 0.8) url("../samples/img.png") no-repeat 50% 10%;
+      background: rgba(217, 217, 217, 0.8) url("../samples/img.jpg") no-repeat 50% 10%;
       background-size: cover ;
     }
     .leftWrapper{
@@ -93,10 +93,13 @@
       <div class="rightWrapper">
         <div class="boxTitle">Extracted Text</div>
         <div class="uploadBoxWrap">
-          <div id="resultBox" class="uploadBox"></div>
+          <div th:text="${extracted}" id="resultBox" class="uploadBox">
+          </div>
         </div>
       </div>
     </div>
+
+    <a href="/" >Back</a>
   </form>
 </div>
 </body>
