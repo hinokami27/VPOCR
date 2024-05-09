@@ -41,7 +41,6 @@ public class UploadController {
         Path filePath = Paths.get("uploads/" + fileName);
         Files.copy(imageUpload.getInputStream(), filePath);
 
-
         return "redirect:/result";
     }
 

@@ -147,7 +147,7 @@
         <div class="boxTitle">Uploaded Image</div>
         <div class="uploadBoxWrap">
           <div class="uploadBox">
-            <img th:src="@{'/uploads/' + ${fileName}}"/>
+            <img alt="imgNotFound" th:src="@{'/uploads/' + ${fileName}}"/>
           </div>
         </div>
       </div>
@@ -170,7 +170,6 @@
 </body>
 <script>
   function copyToClipboard() {
-
     var selectText = document.getElementById('resultBox').innerHTML;
     var input = document.createElement('input');
     input.value = selectText;

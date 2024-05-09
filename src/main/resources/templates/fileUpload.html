@@ -46,7 +46,7 @@
             color: #1E1E1E;
             cursor: pointer;
             border-radius: 30px !important;
-            background: rgba(217, 217, 217, 0.8) url("https://cdn.discordapp.com/attachments/1231041041944281108/1231291465016279213/image.png?ex=6633c989&is=66327809&hm=d8cdaf96acbd61ae8c203f4acb43855de476583b324acba39d9ee7f08ecfce34&") no-repeat 50% 10%;
+            background: rgba(217, 217, 217, 0.8) url("https://i.ibb.co/1ry7nHZ/Untitled.png") no-repeat 50% 45%;
         }
         .leftWrapper{
             width: 50%;
@@ -58,20 +58,11 @@
         }
         .rightWrapper{
             width: 50%;
-            padding-top:50px ;
+            padding-top:50px;
+            padding-right: 30px;
             text-align: left;
             display: flex;
             flex-direction: column;
-
-        }
-        .clickHere{
-            position: absolute;
-            color: #1E1E1E;
-            font-size: 28px;
-            top: 400px;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
         }
         .uploadBoxWrap{
             background: linear-gradient(0deg, #1D2671 0%, #C33764 100%);
@@ -87,7 +78,7 @@
             font-size: 28px;
         }
         .btnConvert{
-            width: 708px;
+            width: 100%;
             height: 163px;
             background: linear-gradient(0deg, #1D2671 0%, #C33764 100%);
             border-radius: 35px;
@@ -117,10 +108,10 @@
         <div class="boxWrapper">
             <div class="leftWrapper">
                 <div class="uploadBoxWrap">
-                    <label for="imageUpload" class="uploadBox"></label>
+                    <label id="uploadBox" for="imageUpload" class="uploadBox"></label>
                     <input type="file" accept="image/*" id="imageUpload" name="imageUpload">
                 </div>
-                <div class="clickHere">click here to upload</div>
+<!--                <div id="clickHere" class="clickHere">click here to upload</div>-->
             </div>
             <div class="rightWrapper">
                 <div class="sellingPoints">Optical character recognition using A.I.</div>
@@ -138,4 +129,16 @@
     </form>
 </div>
 </body>
+<script>
+    const imageUpload = document.getElementById('imageUpload');
+    const uploadBox = document.getElementById('uploadBox');
+    imageUpload.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            uploadBox.style.background = `rgba(217, 217, 217, 0.8) url("https://i.ibb.co/g4pjF8S/image.png") no-repeat 50% 10%`;
+        }
+        reader.readAsDataURL(file);
+    });
+</script>
 </html>
