@@ -31,12 +31,14 @@
       justify-content: space-evenly;
     }
     .uploadBox{
-      width: 780px;
+      width: 787px;
       height: 517px;
-      display: inline-block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       color: #1E1E1E;
       border-radius: 30px !important;
-      background: rgba(217, 217, 217, 0.8) url("../samples/img.jpg") no-repeat 50% 10%;
+      background:   no-repeat 50% 10%;
       background-size: cover ;
     }
     .leftWrapper{
@@ -64,15 +66,41 @@
     }
     #resultBox{
       width: 780px;
-      height: 517px;
       display: inline-block;
       color: #1E1E1E;
       border-radius: 30px !important;
-      background-image: none;
+      background: rgba(217, 217, 217, 0.8);
+      overflow: auto;
+      font-size: 24px;
+      box-sizing: border-box;
+      padding: 20px 16px;
+      height: 407px;
     }
     .boxTitle{
       font-size: 26px;
       margin-bottom: 8px;
+    }
+    #goBack{
+      display: block;
+      height: 80px;
+      margin-top: 20px;
+      width: 780px;
+      text-align: center;
+      line-height: 80px;
+      text-decoration: none !important;
+      color: white;
+      font-size: 30px;
+      background: linear-gradient(0deg, #1D2671 0%, #C33764 100%);
+      border-radius: 30px;
+      padding: 6px;
+    }
+    a{
+      text-decoration: none;
+    }
+    img{
+      border-radius: 30px;
+      max-height: 507px ;
+      max-width: 777px;
     }
   </style>
 </head>
@@ -87,19 +115,24 @@
       <div class="leftWrapper">
         <div class="boxTitle">Uploaded Image</div>
         <div class="uploadBoxWrap">
-          <div class="uploadBox"></div>
+          <div th:style="'background-image: url('+ @{'samples/' + ${fileName}} +');'" class="uploadBox">
+<!--            <img th:src="''">-->
+          </div>
         </div>
       </div>
       <div class="rightWrapper">
         <div class="boxTitle">Extracted Text</div>
         <div class="uploadBoxWrap">
           <div th:text="${extracted}" id="resultBox" class="uploadBox">
+            LorLorem ipsuma dasdaisndilaemLorem ipsuma dasdaisndila iLorem ipsuma dasdaisndilasumaLorem ipsuma dasdaisndila LoreLorem ipsuma dasdaisndilam LoLorem ipsuma dasdaisndilarem ipsuma LoremLorem ipsuma dasdaisndilaipsuma dasdaisLorem ipsuma dasdaisndilandiladasdaisndilaipsuma dasdaisndila ipsuma dasdaisndiladasLorem ipsuma dasdaisndiladaisLorem ipsuma dasdaisndilandLorem ipsuma dasdaisndilailasndk asdLorem ipsuma dasdaisndilaa
+            LorLorem ipsuma dasdaisndilaemLorem ipsuma dasdaisndila iLorem ipsuma dasdaisndilasumaLorem ipsuma dasdaisndila LoreLorem ipsuma dasdaisndilam LoLorem ipsuma dasdaisndilarem ipsuma LoremLorem ipsuma dasdaisndilaipsuma dasdaisLorem ipsuma dasdaisndilandiladasdaisndilaipsuma dasdaisndila ipsuma dasdaisndiladasLorem ipsuma dasdaisndiladaisLorem ipsuma dasdaisndilandLorem ipsuma dasdaisndilailasndk asdLorem ipsuma dasdaisndilaa
+            LorLorem ipsuma dasdaisndilaemLorem ipsuma dasdaisndila iLorem ipsuma dasdaisndilasumaLorem ipsuma dasdaisndila LoreLorem ipsuma dasdaisndilam LoLorem ipsuma dasdaisndilarem ipsuma LoremLorem ipsuma dasdaisndilaipsuma dasdaisLorem ipsuma dasdaisndilandiladasdaisndilaipsuma dasdaisndila ipsuma dasdaisndiladasLorem ipsuma dasdaisndiladaisLorem ipsuma dasdaisndilandLorem ipsuma dasdaisndilailasndk asdLorem ipsuma dasdaisndilaa
           </div>
         </div>
+        <a href="/" >
+          <div id="goBack">upload new image</div></a>
       </div>
     </div>
-
-    <a href="/" >Back</a>
   </form>
 </div>
 </body>

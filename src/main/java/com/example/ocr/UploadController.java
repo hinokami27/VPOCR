@@ -49,6 +49,7 @@ public class UploadController {
     public String getResult(Model model) throws TesseractException {
         String extracted = ocrComponent.getImageString("src/main/resources/samples/" + fileName);
         model.addAttribute("extracted", extracted);
+        model.addAttribute("fileName",fileName);
 
         return "ocrResult";
     }
