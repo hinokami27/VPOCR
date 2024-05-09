@@ -38,8 +38,14 @@
       align-items: center;
       color: #1E1E1E;
       border-radius: 30px !important;
-      background:   no-repeat 50% 10%;
-      background-size: cover ;
+
+      background: no-repeat;
+      background-size: 787px 517px;
+    }
+    .uploadBox img {
+      width: 787px;
+      height: 517px;
+
     }
     .leftWrapper{
       width: 50%;
@@ -63,6 +69,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
     }
     #resultBox{
       width: 780px;
@@ -75,6 +82,10 @@
       box-sizing: border-box;
       padding: 20px 16px;
       height: 407px;
+
+    }
+    #resultBox::-webkit-scrollbar {
+      display: none;
     }
     .boxTitle{
       font-size: 26px;
@@ -102,6 +113,26 @@
       max-height: 507px ;
       max-width: 777px;
     }
+    .clipboard{
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      width: 40px;
+      height: 40px;
+      background-image: url("https://cdn1.iconfinder.com/data/icons/heroicons-ui/24/clipboard-copy-512.png");
+      background-size: cover;
+      border: none;
+      border-radius: 5px;
+      opacity: 30%;
+      transition: 0.1s;
+    }
+    .clipboard:hover{
+      opacity: 100%;
+      width: 44px;
+      height: 44px;
+      transition: 0.1s;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -115,14 +146,15 @@
       <div class="leftWrapper">
         <div class="boxTitle">Uploaded Image</div>
         <div class="uploadBoxWrap">
-          <div th:style="'background-image: url('+ @{'samples/' + ${fileName}} +');'" class="uploadBox">
-<!--            <img th:src="''">-->
+          <div class="uploadBox">
+            <img th:src="@{'/uploads/' + ${fileName}}"/>
           </div>
         </div>
       </div>
       <div class="rightWrapper">
         <div class="boxTitle">Extracted Text</div>
         <div class="uploadBoxWrap">
+          <button onclick="copyToClipboard()" class="clipboard"></button>
           <div th:text="${extracted}" id="resultBox" class="uploadBox">
             LorLorem ipsuma dasdaisndilaemLorem ipsuma dasdaisndila iLorem ipsuma dasdaisndilasumaLorem ipsuma dasdaisndila LoreLorem ipsuma dasdaisndilam LoLorem ipsuma dasdaisndilarem ipsuma LoremLorem ipsuma dasdaisndilaipsuma dasdaisLorem ipsuma dasdaisndilandiladasdaisndilaipsuma dasdaisndila ipsuma dasdaisndiladasLorem ipsuma dasdaisndiladaisLorem ipsuma dasdaisndilandLorem ipsuma dasdaisndilailasndk asdLorem ipsuma dasdaisndilaa
             LorLorem ipsuma dasdaisndilaemLorem ipsuma dasdaisndila iLorem ipsuma dasdaisndilasumaLorem ipsuma dasdaisndila LoreLorem ipsuma dasdaisndilam LoLorem ipsuma dasdaisndilarem ipsuma LoremLorem ipsuma dasdaisndilaipsuma dasdaisLorem ipsuma dasdaisndilandiladasdaisndilaipsuma dasdaisndila ipsuma dasdaisndiladasLorem ipsuma dasdaisndiladaisLorem ipsuma dasdaisndilandLorem ipsuma dasdaisndilailasndk asdLorem ipsuma dasdaisndilaa
@@ -136,4 +168,16 @@
   </form>
 </div>
 </body>
+<script>
+  function copyToClipboard() {
+
+    var selectText = document.getElementById('resultBox').innerHTML;
+    var input = document.createElement('input');
+    input.value = selectText;
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand("copy");
+    document.body.removeChild(input);
+  }
+</script>
 </html>

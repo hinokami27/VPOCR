@@ -36,9 +36,9 @@ public class UploadController {
     public String uploadImg(@RequestParam("imageUpload") MultipartFile imageUpload) throws IOException{
         fileName = imageUpload.getOriginalFilename();
 
-        FileUtils.deleteDirectory(new File("src/main/resources/samples"));
-        Files.createDirectory(Paths.get("src/main/resources/", "samples"));
-        Path filePath = Paths.get("src/main/resources/samples/" + fileName);
+        FileUtils.deleteDirectory(new File("uploads"));
+        Files.createDirectory(Paths.get("", "uploads"));
+        Path filePath = Paths.get("uploads/" + fileName);
         Files.copy(imageUpload.getInputStream(), filePath);
 
 
@@ -47,7 +47,7 @@ public class UploadController {
 
     @GetMapping("/result")
     public String getResult(Model model) throws TesseractException {
-        String extracted = ocrComponent.getImageString("src/main/resources/samples/" + fileName);
+        String extracted = ocrComponent.getImageString("uploads/" + fileName);
         model.addAttribute("extracted", extracted);
         model.addAttribute("fileName",fileName);
 
