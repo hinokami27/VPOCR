@@ -94,10 +94,30 @@
         .btnWrapper{
             margin-top: 40px;
         }
+        .noImageAlert{
+            position: fixed;
+            top: 40px;
+            left: 50%;
+            margin-left: -400px;
+            background: #eeaeca no-repeat 50% 45%;
+            width: 800px;
+            height: 100px;
+            border-radius: 10px;
+            border: 3px solid #C33764;
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 10px;
+            font-size: 24px;
+            color: #1E1E1E;
+        }
+        .noImageAlert:hover{
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
 <div class="mainWrapper">
+    <div th:if="${imgFlag}" id="noImageAlert" class="noImageAlert">Please upload an image before converting <br><div style="font-size: 14px; margin-top:24px ;: ">CLick to dismiss</div></div>
     <div class="topTitle">
         IMAGE to text OCR TOOL
     </div>
@@ -111,7 +131,6 @@
                     <label id="uploadBox" for="imageUpload" class="uploadBox"></label>
                     <input type="file" accept="image/*" id="imageUpload" name="imageUpload">
                 </div>
-<!--                <div id="clickHere" class="clickHere">click here to upload</div>-->
             </div>
             <div class="rightWrapper">
                 <div class="sellingPoints">Optical character recognition using A.I.</div>
@@ -139,6 +158,10 @@
             uploadBox.style.background = `rgba(217, 217, 217, 0.8) url("https://i.ibb.co/g4pjF8S/image.png") no-repeat 50% 10%`;
         }
         reader.readAsDataURL(file);
+    });
+    var div = document.getElementById('noImageAlert');
+    div.addEventListener('click', function() {
+        div.style.display = "none";
     });
 </script>
 </html>

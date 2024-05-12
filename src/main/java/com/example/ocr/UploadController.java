@@ -33,15 +33,19 @@ public class UploadController {
     }
 
     @PostMapping("/uploadImg")
-    public String uploadImg(@RequestParam("imageUpload") MultipartFile imageUpload) throws IOException{
-        fileName = imageUpload.getOriginalFilename();
-
-        FileUtils.deleteDirectory(new File("uploads"));
-        Files.createDirectory(Paths.get("", "uploads"));
-        Path filePath = Paths.get("uploads/" + fileName);
-        Files.copy(imageUpload.getInputStream(), filePath);
-
-        return "redirect:/result";
+    public String uploadImg(@RequestParam("imageUpload") MultipartFile imageUpload, Model model) throws IOException{
+        if(imageUpload.getOriginalFilename() != ""){
+            fileName = imageUpload.getOriginalFilename();
+            FileUtils.deleteDirectory(new File("uploads"));
+            Files.createDirectory(Paths.get("", "uploads"));
+            Path filePath = Paths.get("uploads/" + fileName);
+            Files.copy(imageUpload.getInputStream(), filePath);
+            return "redirect:/result";
+        }
+        else {
+            model.addAttribute("imgFlag",1);
+            return  "fileUpload";
+        }
     }
 
     @GetMapping("/result")
