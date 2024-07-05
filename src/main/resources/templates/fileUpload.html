@@ -113,6 +113,9 @@
         .noImageAlert:hover{
             cursor: pointer;
         }
+        #userID{
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -145,8 +148,10 @@
                 </div>
             </div>
         </div>
+        <input id="userID" type="text" name="userID" th:value="${user?.id}">
     </form>
 </div>
+
 </body>
 <script>
     const imageUpload = document.getElementById('imageUpload');

@@ -1,4 +1,4 @@
-package com.example.ocr;
+package com.example.ocr.service;
 
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
