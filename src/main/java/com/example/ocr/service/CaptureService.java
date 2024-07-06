@@ -59,6 +59,10 @@ public class CaptureService {
         return captureRepository.findAll();
     }
 
+    public void deleteById(Long id){
+        captureRepository.deleteById(id);
+    }
+
     public List<Capture> getCapturesForUser(Long userId){
         return captureRepository.findAll().stream()
                 .filter(capture -> capture.getUser().getId().equals(userId))

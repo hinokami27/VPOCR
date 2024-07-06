@@ -113,8 +113,24 @@
         .noImageAlert:hover{
             cursor: pointer;
         }
-        #userID{
-            display: none;
+        .logout a, .myCaptures a{
+            text-decoration: none !important;
+            background-color: #1E1E1E;
+            width: fit-content;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 7px;
+            font-size: 22px;
+        }
+        .logout{
+            position: fixed;
+            top: 30px;
+            right: 20px !important;
+        }
+        .myCaptures{
+            position: fixed;
+            top: 30px;
+            right: 190px !important;
         }
     </style>
 </head>
@@ -148,15 +164,14 @@
                 </div>
             </div>
         </div>
-        <!--<input id="userID" type="text" name="userID" th:value="${user?.id}">-->
     </form>
 </div>
 
-<div>
+<div class="myCaptures">
     <a href="/userCaptures">My Captures</a>
 </div>
-<div th:text="${user?.username}"></div>
-<div>
+
+<div class="logout">
     <a href="/logout">Log out</a>
 </div>
 

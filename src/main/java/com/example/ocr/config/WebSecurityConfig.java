@@ -36,7 +36,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests( (requests) -> requests
                         .requestMatchers("/", "/h2/**", "/assets/**", "/register")
                         .permitAll()
-                        .requestMatchers("/uploadImg", "/result", "/uploads/**","userCaptures/**")
+                        .requestMatchers("/uploadImg", "/result", "/uploads/**","userCaptures/**","delete/{id}")
                         .authenticated()
                 )
                 .formLogin((form) -> form

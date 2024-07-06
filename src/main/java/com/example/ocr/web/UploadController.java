@@ -82,6 +82,7 @@ public class UploadController {
             return "redirect:/login";
         }
         catch (InvalidArgumentsException | PasswordsDoNotMatchException ex){
+            model.addAttribute("error",ex.getMessage());
             return "redirect:/register?error=" + ex.getMessage();
         }
     }
@@ -147,7 +148,19 @@ public class UploadController {
         Long userId = tmpUser.getId();
         List<Capture> allCaptures = captureService.getCapturesForUser(userId);
         model.addAttribute("captures", allCaptures);
-
+        model.addAttribute("user", tmpUser);
         return "capturesForUser";
     }
+    @GetMapping("/delete/{id}")
+    public String deleteProduct(@PathVariable Long id, Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        OcrUser tmpUser = (OcrUser) authentication.getPrincipal();
+        Long userId = tmpUser.getId();
+        List<Capture> allCaptures = captureService.getCapturesForUser(userId);
+        model.addAttribute("captures", allCaptures);
+        model.addAttribute("user", tmpUser);
+        this.captureService.deleteById(id);
+        return "redirect:/userCaptures";
+    }
+
 }
