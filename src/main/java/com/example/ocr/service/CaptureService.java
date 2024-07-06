@@ -6,6 +6,8 @@ import com.example.ocr.repository.CaptureRepository;
 import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayOutputStream;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.zip.DataFormatException;
 import java.util.zip.Deflater;
 import java.util.zip.Inflater;
@@ -51,5 +53,15 @@ public class CaptureService {
         }
 
         return outputStream.toByteArray();
+    }
+
+    public List<Capture> getAllCaptures(){
+        return captureRepository.findAll();
+    }
+
+    public List<Capture> getCapturesForUser(Long userId){
+        return captureRepository.findAll().stream()
+                .filter(capture -> capture.getUser().getId().equals(userId))
+                .collect(Collectors.toList());
     }
 }

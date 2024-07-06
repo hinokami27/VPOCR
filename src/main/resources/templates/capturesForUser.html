@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+  <thead>
+  <tr>
+    <th>
+      Capture ID
+    </th>
+    <th>
+      User ID
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="capture: ${captures}">
+    <td th:text="${capture.id.toString()}"></td>
+    <td th:text="${capture.user.id.toString()}"></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

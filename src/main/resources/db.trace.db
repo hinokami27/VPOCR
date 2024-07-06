@@ -1,0 +1,3 @@
+2024-07-05 21:25:02 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CAPTUREOCR_USER" not found; SQL statement:
+SELECT * FROM CAPTUREOCR_USER [42102-214]

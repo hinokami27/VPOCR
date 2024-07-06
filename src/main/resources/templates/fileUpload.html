@@ -148,8 +148,16 @@
                 </div>
             </div>
         </div>
-        <input id="userID" type="text" name="userID" th:value="${user?.id}">
+        <!--<input id="userID" type="text" name="userID" th:value="${user?.id}">-->
     </form>
+</div>
+
+<div>
+    <a href="/userCaptures">My Captures</a>
+</div>
+<div th:text="${user?.username}"></div>
+<div>
+    <a href="/logout">Log out</a>
 </div>
 
 </body>
